@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1B7F5C</color>
+    <color name="primary_dark">#0F5A41</color>
+    <color name="primary_container">#CDEEDD</color>
+    <color name="on_primary_container">#00311F</color>
+    <color name="secondary">#F2A900</color>
+    <color name="background">#F6F8F7</color>
+    <color name="text_primary">#1C1B1F</color>
+    <color name="text_secondary">#5F6368</color>
+    <color name="error">#B3261E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="status_recebida">#455A64</color>
+    <color name="status_em_analise">#9A5B00</color>
+    <color name="status_em_andamento">#1565C0</color>
+    <color name="status_resolvida">#2E7D32</color>
+    <color name="status_nao_procedente">#B3261E</color>
+</resources>

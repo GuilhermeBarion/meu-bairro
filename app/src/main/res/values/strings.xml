@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MeuBairro</string>
+    <string name="slogan">Sua cidade, sua participação.</string>
+    <string name="logo_desc">Logotipo do MeuBairro</string>
+    <string name="voltar">Voltar</string>
+
+    <string name="entrar">Entrar</string>
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar_senha">Confirmar senha</string>
+    <string name="esqueci_senha">Esqueci minha senha</string>
+    <string name="criar_conta">Criar conta</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="ja_tenho_conta">Já tenho conta</string>
+
+    <string name="nav_inicio">Início</string>
+    <string name="nav_ocorrencias">Ocorrências</string>
+    <string name="nav_minhas">Minhas ocorrências</string>
+    <string name="nav_perfil">Perfil</string>
+
+    <string name="saudacao">Olá, %1$s!</string>
+    <string name="saudacao_sub">O que está acontecendo no seu bairro?</string>
+    <string name="pesquisar_hint">Pesquisar ocorrências</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="registrar_problema">Registrar problema</string>
+    <string name="categorias">Categorias</string>
+    <string name="indicadores">Indicadores</string>
+    <string name="ind_total">Total</string>
+    <string name="ind_pendentes">Aguardando</string>
+    <string name="ind_andamento">Em andamento</string>
+    <string name="ind_resolvidas">Resolvidas</string>
+    <string name="recentes">Ocorrências recentes</string>
+    <string name="ver_todas">Ver todas</string>
+    <string name="tentar_novamente">Tentar novamente</string>
+
+    <string name="categoria">Categoria</string>
+    <string name="status">Status</string>
+    <string name="titulo">Título</string>
+    <string name="descricao">Descrição</string>
+    <string name="endereco">Endereço</string>
+    <string name="foto_opcional">Foto (opcional)</string>
+    <string name="foto_desc">Foto da ocorrência</string>
+    <string name="tirar_foto">Tirar foto</string>
+    <string name="galeria">Galeria</string>
+    <string name="remover_foto">Remover foto</string>
+    <string name="usar_localizacao">Usar minha localização</string>
+    <string name="enviar_ocorrencia">Enviar ocorrência</string>
+    <string name="registrar_titulo">Registrar ocorrência</string>
+
+    <string name="detalhes_titulo">Detalhes da ocorrência</string>
+    <string name="historico">Histórico de atualizações</string>
+    <string name="ver_no_mapa">Ver no mapa</string>
+    <string name="atualizar_status">Atualizar status</string>
+    <string name="alterar_status">Alterar status</string>
+    <string name="nao_procedente_aviso">Esta ocorrência foi analisada e considerada não procedente.</string>
+
+    <string name="editar_perfil">Editar perfil</string>
+    <string name="painel_admin">Painel administrativo</string>
+    <string name="sobre">Sobre o app</string>
+    <string name="sair">Sair da conta</string>
+    <string name="excluir_conta">Excluir minha conta</string>
+    <string name="sobre_texto">MeuBairro v1.0\nEquipe UrbanTech\n\nAplicativo para registrar e acompanhar problemas urbanos do seu bairro, alinhado à ODS 11 – Cidades e Comunidades Sustentáveis.\n\nAtenção: as ocorrências ficam registradas apenas no MeuBairro. O app não envia denúncias automaticamente à prefeitura.</string>
+
+    <string name="filtro_todas_categorias">Todas as categorias</string>
+    <string name="filtro_todos_status">Todos os status</string>
+</resources>

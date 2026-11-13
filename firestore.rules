@@ -1,0 +1,70 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() {
+      return request.auth != null;
+    }
+
+    // Administrador = documento do próprio usuário com tipo == 'administrador'
+    // (definido manualmente no console do Firebase; o app nunca consegue se promover).
+    function ehAdmin() {
+      return logado()
+        && exists(/databases/$(database)/documents/usuarios/$(request.auth.uid))
+        && get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.tipo == 'administrador';
+    }
+
+    function categoriaValida(c) {
+      return c in ['Ruas e pavimentação', 'Calçadas e acessibilidade', 'Iluminação pública',
+                   'Limpeza urbana', 'Praças e espaços públicos', 'Drenagem urbana'];
+    }
+
+    function statusValido(s) {
+      return s in ['Recebida', 'Em análise', 'Em andamento', 'Resolvida', 'Não procedente'];
+    }
+
+    match /usuarios/{uid} {
+      allow read: if logado() && (request.auth.uid == uid || ehAdmin());
+      // Ao criar a conta, o tipo só pode ser 'usuario'.
+      allow create: if logado() && request.auth.uid == uid
+        && request.resource.data.tipo == 'usuario';
+      // O usuário edita o próprio perfil, mas não pode alterar o tipo.
+      allow update: if logado() && request.auth.uid == uid
+        && request.resource.data.tipo == resource.data.tipo;
+      allow delete: if logado() && request.auth.uid == uid;
+    }
+
+    match /ocorrencias/{ocorrenciaId} {
+      allow read: if logado();
+
+      allow create: if logado()
+        && request.resource.data.usuarioId == request.auth.uid
+        && request.resource.data.status == 'Recebida'
+        && request.resource.data.titulo is string
+        && request.resource.data.titulo.size() > 0 && request.resource.data.titulo.size() <= 100
+        && request.resource.data.descricao is string
+        && request.resource.data.descricao.size() > 0 && request.resource.data.descricao.size() <= 1000
+        && request.resource.data.endereco is string && request.resource.data.endereco.size() > 0
+        && categoriaValida(request.resource.data.categoria);
+
+      // Somente administradores alteram o status (e apenas status/dataAtualizacao).
+      allow update: if ehAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'dataAtualizacao'])
+        && statusValido(request.resource.data.status);
+
+      // O autor pode apagar a própria ocorrência (usado na exclusão de conta).
+      allow delete: if logado() && resource.data.usuarioId == request.auth.uid;
+
+      match /historico/{historicoId} {
+        allow read: if logado();
+        allow create: if ehAdmin()
+          || (logado()
+              && getAfter(/databases/$(database)/documents/ocorrencias/$(ocorrenciaId)).data.usuarioId == request.auth.uid
+              && request.resource.data.status == 'Recebida');
+        allow delete: if logado()
+          && get(/databases/$(database)/documents/ocorrencias/$(ocorrenciaId)).data.usuarioId == request.auth.uid;
+      }
+    }
+  }
+}
