@@ -9,7 +9,8 @@ O MeuBairro é um aplicativo Android criado pela equipe **UrbanTech** como traba
 ### Integrantes
 
 - Guilherme Barion Ferreira
-- *(adicione aqui os demais integrantes da equipe)*
+- Pedro Gabriel Lopes Da Cruz
+- Caio Emanoel Xavier de Moraes
 
 ## Qual é a ideia?
 
@@ -64,7 +65,7 @@ Você vai precisar do **Android Studio** e de uma conta Google (para usar o Fire
 Clone o repositório ou baixe o ZIP e extraia:
 
 ```
-git clone <endereço-do-repositório>
+git clone https://github.com/GuilhermeBarion/meu-bairro
 ```
 
 ### Passo 2: abrir no Android Studio
